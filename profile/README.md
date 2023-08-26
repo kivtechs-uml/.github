@@ -1,20 +1,29 @@
 ## UML  👋
 
 
+
+
 ```mermaid
-flowchart TB
-     subgraph CHABOT UI
-     A(OPEN AI) <-- API --> B{chatbot} <-- text --> C{{USER input }}
-     B <-- PROMPTS --> C
-     C --auth--> D[(Database)]
-     B -- auth --> D
+flowchart TD
+    subgraph KIVTECHS.cloud
+    A[kivtechs.cloud] -->|cloudfare| B(kivtechs dashboard)
+    B[kivtechs dashboard] ----> |chatbot| C1[IVORY]
+    B[kivtechs dashboard] ----> |chatbot| C2[OLIVE]
+    B[kivtechs dashboard] ----> |TTS| H[TTS]
+    B[kivtechs dashboard] ----> |API| E[IMAGE]
+    B[kivtechs dashboard] ----> |YOUTUBE| I[fab:fa-youtube KNEOGINI]
+    B[kivtechs dashboard] ----> |MAIN| G[KNEOGINI_MAIN]
+    B --auth-->D[(Firebase)]
+    end
+    subgraph AUTH
+      A1(user) <-- login --> D[(Firebase)] <-- auth --> U{{ auth:TRUE }}
+     A1  <-- AUTH --> U
      end
-     subgraph AUTH
-     A1(user) <-- login --> D[(Database)] <-- auth --> C1{{ auth:TRUE }}
-     A1  <-- AUTH --> C1
-     end
-  
-    
+subgraph logs
+ B --logs --> D[(Firebase)]
+end
+
 
 
 ```
+
